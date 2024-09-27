@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+  servlet:
+    context-path: /project
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Users?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+
+  mvc:
+    static-path-pattern: /static/**
+
+  jackson:
+    date-format: yyyy-MM-ss HH:mm:ss
+    time-zone: GMT+8
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+
+logging:
+    level:
+      com: warn
+    file:
+      name: D:/log/project/springBoot.log
+      path: project/logs
+
+

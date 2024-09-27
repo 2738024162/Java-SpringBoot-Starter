@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业级管理系统</title>
+    <!--custom-->
+    <link rel="stylesheet" href="../../static/asserts/css/mainStyle.css" th:href="@{/static/asserts/css/mainStyle.css}">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body>
+
+<!--侧边栏-->
+<div class="sidebar">
+    <div class="logo">
+        <h2>企业管理系统</h2>
+    </div>
+    <ul class="menu">
+        <li><a href="#" data-section="dashboard">仪表盘</a></li>
+        <li><a href="#" data-section="user-management">用户管理</a></li>
+        <li><a href="#" data-section="profile">个人信息</a></li>
+        <li><a href="#" data-section="settings">系统设置</a></li>
+        <li><a href="#" data-section="logout">退出登录</a></li>
+    </ul>
+</div>
+
+<!--内容区-->
+<div class="main-content">
+    <div id="dashboard" class="section">
+        <div class="container mt-4">
+            <h1>仪表盘</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <canvas id="userChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            <!-- 统计信息卡片 -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">总用户数</h5>
+                            <p class="card-text" th:text="${totalUsers}">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">今日注册</h5>
+                            <p class="card-text" th:text="${usersToday}">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">活跃用户</h5>
+                            <p class="card-text" th:text="${activeUsers}">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-management" class="section" style="display: none;">
+        <h1>用户管理</h1>
+        <button id="add-user-btn">添加用户</button>
+        <table>
+            <thead>
+            <tr>
+                <th>用户名</th>
+                <th>邮箱</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="user-list">
+            <!-- 用户列表会通过JS动态加载 -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="profile" class="section" style="display: none;">
+        <h1>个人信息</h1>
+        <form id="profile-form">
+            <label for="username">用户名:</label>
+            <input type="text" id="profile-username" name="username" value="admin">
+
+            <label for="email">邮箱:</label>
+            <input type="email" id="profile-email" name="email" value="admin@example.com">
+
+            <label for="password">密码:</label>
+            <input type="password" id="profile-password" name="password" placeholder="********">
+
+            <input type="submit" value="保存更改">
+        </form>
+    </div>
+
+    <div id="settings" class="section" style="display: none;">
+        <h1>系统设置</h1>
+        <p>系统设置内容。</p>
+    </div>
+
+    <div id="logout" class="section" style="display: none;">
+        <h1>确认退出？</h1>
+        <a href="../login/index.html">确认</a>
+    </div>
+</div>
+<script src="webjars/jquery/3.7.1/jquery.min.js" th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script src="../static/asserts/js/mainScript.js" th:src="@{/static/asserts/js/userList.js}"></script>
+<script src="webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js" th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+
+<!-- 引入Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

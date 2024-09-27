@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="#" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/asserts/css/CustomStyle_main.css" th:href="@{/static/asserts/css/CustomStyle_main.css}" rel="stylesheet">
+</head>
+<body>
+<!-- Top Navigation Bar -->
+<nav id="topNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">管理员面板</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="#" th:href="@{/admin/dashboard.html}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">product</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" th:href="@{/login.html}" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<nav id="sidebar" class="d-flex flex-column p-3 position-fixed">
+    <h4 class="text-dark mb-4">导航</h4>
+    <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+            <a href="#" th:href="@{/admin/dashboard.html}" class="nav-link active"
+               th:class="${active=='dashboard'?'nav-link active':'nav-link'}">仪表盘</a>
+        </li>
+        <li>
+            <a href="#" th:href="@{/admin/user.html}" class="nav-link"
+               th:class="${active=='user'?'nav-link active':'nav-link'}">用户管理</a>
+        </li>
+        <li>
+            <a href="#" th:href="@{/admin/reports.html}" class="nav-link"
+               th:class="${active=='reports'?'nav-link active':'nav-link'}">更多功能</a>
+        </li>
+        <li>
+            <a href="#" th:href="@{/admin/settings.html}" class="nav-link"
+               th:class="${active=='settings'?'nav-link active':'nav-link'}">设置面板</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Main Content Placeholder -->
+<div id="content">
+    <!-- Page content will be loaded here dynamically or by switching pages -->
+</div>
+
+<!-- Bootstrap JS & jQuery -->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" th:src="@{}"></script>-->
+<script src="#" th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.js}"></script>
+<script src="#" th:src="@{/webjars/jquery/3.7.1/jquery.js}"></script>
+<script th:src="@{/static/asserts/js/script.js}"></script>
+</body>
+</html>

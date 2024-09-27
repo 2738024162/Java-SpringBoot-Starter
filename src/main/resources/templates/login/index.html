@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎</title>
+    <link rel="stylesheet" href="../../static/asserts/css/style.css" th:href="@{/static/asserts/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>欢迎光临</h1>
+    <img src="../../static/asserts/img/main.png" th:src="@{/static/asserts/img/main.png}" width="400">
+    <a href="login.html" class="button">登录</a>
+    <a href="register.html" class="button">注册</a>
+    <p th:utext="${error}" th:if="not ${#strings.isEmpty(error)}" style="color: red"></p>
+</div>
+</body>
+</html>
